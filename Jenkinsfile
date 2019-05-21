@@ -1,15 +1,11 @@
-def bucket = 'deployment-packages-test1'
-def functionName = 'Fibonacci'
-def region = 'ap-southeast-2'
+//def bucket = 'deployment-packages-test1'
 
 node {
 
-	//environment {
-//		DOTNET_ROOT="$HOME/dotnet"
-//	}
 	
 	def DOTNET_PATH = '/home/ec2-user/dotnet'
-	def FUNCTION_NAME = 'dotnettest2-4'
+	def FUNCTION_NAME = 'dotnetlabmda2'
+	def APP_MAIN_FOLDER = 'dotnetlabmda2'
 	def REGION = 'ap-southeast-2'
 	def PROD_ALIAS = 'production'
 	def STAGING_ALIAS = 'staging'
@@ -30,21 +26,21 @@ node {
 		sh "sudo $DOTNET_PATH/dotnet test"
 	}
 	
-/*
+
 	stage('Deploy') {
 		env.DOTNET_ROOT = "/home/ec2-user/dotnet"
 		env.PATH = "$PATH:/home/ec2-user/dotnet"
 
 		sh "$DOTNET_PATH/dotnet-lambda list-functions"
-		dir("AWSServerlessWithTest2") {
+		dir(${APP_MAIN_FOLDER}) {
 			//sh "$DOTNET_PATH/dotnet-lambda deploy-function DotNetCoreWithTest1 --function-role JenkinsBuildRole"
-			sh "$DOTNET_PATH/dotnet-lambda deploy-function --function-runtime dotnetcore2.1 --function-name ${FUNCTION_NAME}  --function-memory-size 256 --function-timeout 30 --function-role mydotnetroll --function-handler AWSServerlessWithTest2::AWSServerlessWithTest2.LambdaEntryPoint::FunctionHandlerAsync --disable-interactive true"
+			sh "$DOTNET_PATH/dotnet-lambda deploy-function --function-runtime dotnetcore2.1 --function-name ${FUNCTION_NAME}  --function-memory-size 256 --function-timeout 30 --function-role mydotnetroll --function-handler ${FUNCTION_NAME}::${FUNCTION_NAME}.LambdaEntryPoint::FunctionHandlerAsync --disable-interactive true"
 			
 			sh "$DOTNET_PATH/dotnet-lambda deploy-serverless ${FUNCTION_NAME}"
 
 		}
 	}
-*/
+
 	
 	if (env.BRANCH_NAME == 'master') {
 		stage('Publish') {
@@ -96,14 +92,5 @@ node {
 		}
 	}	
 	
-
-	/*stage('Deploy Serverless') {
-		env.DOTNET_ROOT = "/home/ec2-user/dotnet"
-		env.PATH = "$PATH:/home/ec2-user/dotnet"
-
-		dir("AWSServerlessWithTest2") {
-			sh "$DOTNET_PATH/dotnet-lambda deploy-serverless ${FUNCTION_NAME}"
-		}
-	}*/
 	
 }
