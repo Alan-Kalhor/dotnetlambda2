@@ -15,6 +15,6 @@
   "s3-prefix": "dotnetlabmda2/",
   "template": "serverless.template",
   "template-parameters": "\"ShouldCreateBucket\"=\"true\";\"BucketName\"=\"\"",
-  "s3-bucket": "deployment-packages-dotnetlabmda2",
+  "s3-bucket": "",
   "stack-name": "dotnetlabmda2"
 }
