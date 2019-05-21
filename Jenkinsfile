@@ -32,7 +32,8 @@ node {
 		env.PATH = "$PATH:/home/ec2-user/dotnet"
 
 		sh "$DOTNET_PATH/dotnet-lambda list-functions"
-		dir(${APP_MAIN_FOLDER}) {
+		
+		dir("${APP_MAIN_FOLDER}") {
 			//sh "$DOTNET_PATH/dotnet-lambda deploy-function DotNetCoreWithTest1 --function-role JenkinsBuildRole"
 			sh "$DOTNET_PATH/dotnet-lambda deploy-function --function-runtime dotnetcore2.1 --function-name ${FUNCTION_NAME}  --function-memory-size 256 --function-timeout 30 --function-role mydotnetroll --function-handler ${FUNCTION_NAME}::${FUNCTION_NAME}.LambdaEntryPoint::FunctionHandlerAsync --disable-interactive true"
 			
