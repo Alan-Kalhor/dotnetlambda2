@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnetlabmda2", "dotnetlabmda2\dotnetlabmda2.csproj", "{F8AF1D31-B66B-47A4-BB01-58E9D0A4F2E2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnetlabmda2.Tests", "dotnetlabmda2.Tests\dotnetlabmda2.Tests.csproj", "{3BDE9FBB-1CAB-44BA-A292-B90D4BE052EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8AF1D31-B66B-47A4-BB01-58E9D0A4F2E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8AF1D31-B66B-47A4-BB01-58E9D0A4F2E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8AF1D31-B66B-47A4-BB01-58E9D0A4F2E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8AF1D31-B66B-47A4-BB01-58E9D0A4F2E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BDE9FBB-1CAB-44BA-A292-B90D4BE052EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BDE9FBB-1CAB-44BA-A292-B90D4BE052EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BDE9FBB-1CAB-44BA-A292-B90D4BE052EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BDE9FBB-1CAB-44BA-A292-B90D4BE052EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {228C815F-1EB1-424E-8FF5-C53B5A69E04F}
+	EndGlobalSection
+EndGlobal
