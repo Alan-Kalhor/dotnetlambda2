@@ -33,7 +33,7 @@ node {
 
 		sh "$DOTNET_PATH/dotnet-lambda list-functions"
 		
-		sh "aws --region ${REGION} cloudformation create-stack --stack-name ${FUNCTION_NAME}"
+		//sh "aws --region ${REGION} cloudformation create-stack --stack-name ${FUNCTION_NAME}"
 		
 		dir("${APP_MAIN_FOLDER}") {
 			//sh "$DOTNET_PATH/dotnet-lambda deploy-function DotNetCoreWithTest1 --function-role JenkinsBuildRole"
