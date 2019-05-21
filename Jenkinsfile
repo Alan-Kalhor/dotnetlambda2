@@ -39,6 +39,8 @@ node {
 			//sh "$DOTNET_PATH/dotnet-lambda deploy-function DotNetCoreWithTest1 --function-role JenkinsBuildRole"
 			sh "$DOTNET_PATH/dotnet-lambda deploy-function --function-runtime dotnetcore2.1 --function-name ${FUNCTION_NAME}  --function-memory-size 256 --function-timeout 30 --function-role mydotnetroll --function-handler ${FUNCTION_NAME}::${FUNCTION_NAME}.LambdaEntryPoint::FunctionHandlerAsync --disable-interactive true"
 			
+			sh "echo 'after deploy-function'"						
+			
 			sh "$DOTNET_PATH/dotnet-lambda deploy-serverless ${FUNCTION_NAME}"
 
 		}
