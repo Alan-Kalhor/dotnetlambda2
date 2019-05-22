@@ -36,7 +36,7 @@ node {
 		
 		//sh "aws --region ${REGION} cloudformation create-stack --stack-name ${FUNCTION_NAME}"
 		sh "echo 'about to create s3'"		
-		sh "aws s3api create-bucket --bucket ${S3_BUCKET} --region ${REGION} -create-bucket-configuration LocationConstraint=${REGION}"
+		sh "aws s3api create-bucket --bucket ${S3_BUCKET} --create-bucket-configuration  LocationConstraint=${REGION}"
 		
 		sh "echo 'about to deploy lambda'"		
 		dir("${APP_MAIN_FOLDER}") {
