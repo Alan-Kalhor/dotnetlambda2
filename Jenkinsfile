@@ -6,6 +6,7 @@ node {
 	def DOTNET_PATH = '/home/ec2-user/dotnet'
 	def FUNCTION_NAME = 'dotnetlabmda2'
 	def APP_MAIN_FOLDER = 'dotnetlabmda2'
+	def S3_BUCKET = 's3.alankalhor.dotnetlabmda2'
 	def REGION = 'ap-southeast-2'
 	def PROD_ALIAS = 'production'
 	def STAGING_ALIAS = 'staging'
@@ -34,7 +35,10 @@ node {
 		sh "$DOTNET_PATH/dotnet-lambda list-functions"
 		
 		//sh "aws --region ${REGION} cloudformation create-stack --stack-name ${FUNCTION_NAME}"
+		sh "echo 'about to create s3'"		
+		aws s3api create-bucket --bucket ${S3_BUCKET} --acl public read --region ${REGION}
 		
+		sh "echo 'about to deploy lambda'"		
 		dir("${APP_MAIN_FOLDER}") {
 			//sh "$DOTNET_PATH/dotnet-lambda deploy-function DotNetCoreWithTest1 --function-role JenkinsBuildRole"
 			sh "$DOTNET_PATH/dotnet-lambda deploy-function --function-runtime dotnetcore2.1 --function-name ${FUNCTION_NAME}  --function-memory-size 256 --function-timeout 30 --function-role mydotnetroll --function-handler ${FUNCTION_NAME}::${FUNCTION_NAME}.LambdaEntryPoint::FunctionHandlerAsync --disable-interactive true"
